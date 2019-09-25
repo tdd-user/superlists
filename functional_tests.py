@@ -1,3 +1,4 @@
+from selenium import webdriver
 
 import unittest
 
@@ -19,7 +20,7 @@ class NewVisitorTest(unittest.TestCase):
         self.fail('Finish the test!')  
 
         # She is invited to enter a to-do item straight away
-        [...rest of comments as before]
+        #[...rest of comments as before]
 
 if __name__ == '__main__':  
     unittest.main(warnings='ignore')  
