@@ -13,9 +13,12 @@ class HomePageTest(TestCase):
        
         
     def test_home_page_returns_correct_html(self):
-        request = HttpRequest()  
-        response = home_page(request)  
+
+        response = self.client.get('/')  
         html = response.content.decode('utf8')  
-        self.assertTrue(html.startswith('<html>'), "check the home page's html tags")  
+        self.assertTrue(html.strip().startswith('<html>'), "check the home page's html tags")  
         self.assertIn('<title>To-Do lists</title>', html)  
-        self.assertTrue(html.endswith('</html>'), "check the home page's html tags")  
+        self.assertTrue(html.strip().endswith('</html>'), "check the home page's html tags")  
+        print(repr(html))
+        self.assertTemplateUsed(response, 'home.html')  
+        
